@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+        	
+<ui:define name="pageContent">
+
+<h:head>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'/>
+  <link href="../resources/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../resources/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>  
+  <link href="../resources/css/flexslider.css" rel="stylesheet"/>
+  <link href="../resources/css/templatemo-style.css" rel="stylesheet"/>
+
+
+ </h:head>
+  <body class="tm-gray-bg">
+  	<!-- Header -->
+  	<div class="tm-header">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+  					<a href="#" class="tm-site-name">MAWALNI</a>	
+  				</div>
+	  			<div class="col-lg-6 col-md-8 col-sm-9">
+	  				<div class="mobile-menu-icon">
+		              <i class="fa fa-bars"></i>
+		            </div>
+	  				<nav class="tm-nav">
+						<ul>
+							<li><a href="/Mawalni-web/pages/userHomePage.jsf">Home</a></li>							
+							<li><a href="/Mawalni-web/pages/addProject.jsf" class="active">Project</a></li>
+							<li><a href="tours.html">Statistics</a></li>
+							<li><a href="contact.html">Message</a></li>
+						</ul>
+					</nav>		
+	  			</div>				
+  			</div>
+  		</div>	  	
+  	</div>
+	
+	
+	<!-- gray bg -->	
+	<section class="container tm-home-section-1" id="more">
+	
+		
+		<div class="section-margin-top about-section">
+
+
+
+
+
+
+<h:form id="form">
+		<p:panel id="panel" header="Add new Project" style="margin-bottom:10px;" >
+		<p:messages autoUpdate="true" />
+			<p:messages id="messages" />
+			<h:panelGrid columns="3" cellpadding="5">
+				<p:outputLabel for="title" value="Title" />
+				<p:inputText id="title" label="Title" value="#{projectBean.project.titre}">
+					<f:validateLength minimum="2" />
+				</p:inputText>
+				<p:message for="title" />
+				
+		<p:outputLabel for="console" value="Category" />
+		<h:selectOneMenu id="console" value="#{projectBean.project.category}" style="width:125px">
+            <f:selectItem itemLabel="Music" itemValue="Music" />
+            <f:selectItem itemLabel="Technology" itemValue="Technology" />
+            <f:selectItem itemLabel="Sport" itemValue="Sport" />
+            <f:selectItem itemLabel="Health" itemValue="Health" />
+        </h:selectOneMenu>
+        
+        <p:message for="console" />
+     
+				<p:outputLabel for="description" value="Description" />
+				<p:inputTextarea id="description" rows="10" cols="33" value="#{projectBean.project.descrip}">
+				<f:validateLength minimum="2" />
+				</p:inputTextarea>				
+				<p:message for="description" />				
+				
+			</h:panelGrid>
+		</p:panel>
+		<p:toolbar>
+			<f:facet name="left">
+				<p:commandButton value="Submit"  type="submit"
+					action="#{projectBean.addProject()}" style="margin-right:20px;" />
+			</f:facet>
+			<f:facet name="right">
+				<p:commandButton value="Cancel" update="panel" process="@this" 
+					 style="margin-right:20px;" />
+			</f:facet>
+		</p:toolbar>
+	</h:form>
+
+
+
+
+
+
+
+
+
+
+				
+		</div>
+	</section>		
+	
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Copyright 2016 ESPRIT
+                
+                | Designed by Asma Boussabat</p>
+			</div>
+		</div>		
+	</footer>
+	<script type="text/javascript" src="../resources/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="../resources/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+  	<script type="text/javascript" src="../resources/js/jquery.flexslider-min.js"></script>			<!-- flexslider js -->
+  	<script type="text/javascript" src="../resources/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+
+ </body>
+
+
+</ui:define>
+</ui:composition>

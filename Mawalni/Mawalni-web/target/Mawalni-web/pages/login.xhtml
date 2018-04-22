@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+
+  <ui:define name="pageContentlogin"> 
+	
+<head>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'/>
+  <link href="../resources/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../resources/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>  
+  <link href="../resources/css/flexslider.css" rel="stylesheet"/>
+  <link href="../resources/css/templatemo-style.css" rel="stylesheet"/>
+  
+
+<title>Login Page</title>
+  </head>
+  <body class="tm-gray-bg">
+  	<!-- Header -->
+  	<div class="tm-header">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+  					<a href="#" class="tm-site-name">MAWALNI</a>	
+  				</div>
+	  			<div class="col-lg-6 col-md-8 col-sm-9">
+	  				<div class="mobile-menu-icon">
+		              <i class="fa fa-bars"></i>
+		            </div>
+	  				<nav class="tm-nav">
+						<ul>
+							<li><a href="userHomePage.xhtml" class="active">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="tours.html">Our Tours</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>		
+	  			</div>				
+  			</div>
+  		</div>	  	
+  	</div>
+	
+
+
+		<!-- white bg -->
+	<section class="section-padding-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="tm-section-header section-margin-top">
+					<div class="col-lg-4 col-md-3 col-sm-3"></div>
+					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Authentification</h2></div>
+					<div class="col-lg-4 col-md-3 col-sm-3"></div>	
+				</div>				
+			</div>
+			<div class="row">
+				<!-- contact form -->
+				<h:form id="loginForm">
+				
+					<div class="col-lg-6 col-md-6 tm-contact-form-input">
+						<div class="form-group">
+							<h:inputText class="form-control" placeholder="LOGIN" value="#{authB.user.login}" id="login" />
+						</div>
+						
+						<div class="form-group">
+							<h:inputSecret class="form-control" placeholder="PASSWORD" value="#{authB.user.pwd}" id="pwd" />
+						</div>
+						
+						<div class="form-group">
+						<h:commandButton class="tm-submit-btn" action="#{authB.doLogin()}" value="Submit"  />
+							
+						</div>               
+					</div>
+				</h:form>
+			</div>			
+		</div>
+	</section>
+
+	<section class="container tm-home-section-1" id="more">
+		<div class="row">
+			<!-- slider -->
+			<div class="flexslider effect2 effect2-contact tm-contact-box-1">
+				<ul class="slides">
+					<li>
+						
+						<div class="contact-text">
+							<h2 class="slider-title">Lorem Isum Dolor</h2>
+							<h3 class="slider-subtitle">Gravida nibh vel velit auctor aliquet enean sollicitudin lorem quis auctor, nisi elit consequat ipsum</h3>
+							<p class="slider-description">Morbi accumsan ipsum velut aliquam massa nisi.</p>
+							<div class="slider-social">
+								<a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
+								<a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
+								<a href="#" class="tm-social-icon"><i class="fa fa-pinterest"></i></a>
+								<a href="#" class="tm-social-icon"><i class="fa fa-google-plus"></i></a>
+							</div>
+						</div>			      
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>	
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Copyright 2016 ESPRIT 
+                
+                | Designed by <a rel="nofollow" href="">Asma Boussabat</a></p>
+			</div>
+		</div>		
+	</footer>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<!--
+	<script src="js/froogaloop.js"></script>
+	<script src="js/jquery.fitvid.js"></script>
+-->
+   	<script type="text/javascript" src="js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script>
+		// HTML document is loaded. DOM is ready.
+		$(function() {
+
+			$('#hotelCarTabs a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			})
+
+        	$('.date').datetimepicker({
+            	format: 'MM/DD/YYYY'
+            });
+            $('.date-time').datetimepicker();
+
+			// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+		  	$('a[href*=#]:not([href=#])').click(function() {
+			    if (location.pathname.replace(/) {
+			      var target = $(this.hash);
+			      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			      if (target.length) {
+			        $('html,body').animate({
+			          scrollTop: target.offset().top
+			        }, 1000);
+			        return false;
+			      }
+			    }
+		  	});
+		});
+		
+		// Load Flexslider when everything is loaded.
+		$(window).load(function() {	  		
+			// Vimeo API nonsense
+
+/*
+			  var player = document.getElementById('player_1');
+			  $f(player).addEvent('ready', ready);
+			 
+			  function addEvent(element, eventName, callback) {
+			    if (element.addEventListener) {
+			      element.addEventListener(eventName, callback, false)
+			    } else {
+			      element.attachEvent(eventName, callback, false);
+			    }
+			  }
+			 
+			  function ready(player_id) {
+			    var froogaloop = $f(player_id);
+			    froogaloop.addEvent('play', function(data) {
+			      $('.flexslider').flexslider("pause");
+			    });
+			    froogaloop.addEvent('pause', function(data) {
+			      $('.flexslider').flexslider("play");
+			    });
+			  }
+*/
+
+			 
+			 
+			  // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
+/*
+
+			  $(".flexslider")
+			    .fitVids()
+			    .flexslider({
+			      animation: "slide",
+			      useCSS: false,
+			      animationLoop: false,
+			      smoothHeight: true,
+			      controlNav: false,
+			      before: function(slider){
+			        $f(player).api('pause');
+			      }
+			  });
+*/
+
+
+			  
+
+//	For images only
+		    $('.flexslider').flexslider({
+			    controlNav: false
+		    });
+
+
+	  	});
+	</script>
+ </body>
+   </ui:define>
+</ui:composition>
